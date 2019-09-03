@@ -1,13 +1,13 @@
 import processing.pdf.*;
 
 // NUMBER OF COLUMNS
-int col = 24;
+int col = 48;
 
 // VALUES FOR HUE AND SATURATION
 // BASE
-int val = 9;
+int val = 30;
 // +-
-int inc = 3;
+int inc = 20;
 // FINAL VALUES
 int min = val - inc;
 int max = val + inc;
@@ -19,7 +19,7 @@ void setup() {
   colorMode(HSB, 1, 1, 1);
   // blendMode(MULTIPLY);
 
-  size(800, 800); //, PDF, "Squares.pdf");
+  size(800, 800, PDF, "Squares.pdf");
 
   background(0, 0, 1);
   noStroke();
@@ -29,7 +29,6 @@ void setup() {
 }
 
 void draw() {
-  // background(1);
   bri = 1;
 
   step = width / col;
@@ -52,13 +51,13 @@ void draw() {
   }
 
 
-  //// Get the renderer
-  //PGraphicsPDF pdf = (PGraphicsPDF) g;
+  // Get the renderer
+  PGraphicsPDF pdf = (PGraphicsPDF) g;
 
-  //// When finished drawing, quit and save the file
-  //if (frameCount == 20) {
-  //  exit();
-  //} else {
-  //  pdf.nextPage();  // Tell it to go to the next page
-  //}
+  // When finished drawing, quit and save the file
+  if (frameCount == 20) {
+    exit();
+  } else {
+    pdf.nextPage();  // Tell it to go to the next page
+  }
 }
