@@ -17,12 +17,12 @@ float step, hueRange, satRange, hue, sat, bri;
 
 void setup() {
   colorMode(HSB, 1, 1, 1);
-  blendMode(MULTIPLY);
+  // blendMode(MULTIPLY);
 
   noiseSeed(0);
   noiseDetail(4, .9);
 
-  size(816, 816); // , PDF, "Squares.pdf");
+  size(816, 816); //, PDF, "Squares.pdf");
 
   background(0, 0, 1);
   noStroke();
@@ -60,7 +60,7 @@ void draw() {
   //PGraphicsPDF pdf = (PGraphicsPDF) g;
 
   //// When finished drawing, quit and save the file
-  //if (frameCount == 50) {
+  //if (frameCount == 20) {
   //  exit();
   //} else {
   //  pdf.nextPage();  // Tell it to go to the next page
