@@ -19,7 +19,7 @@ void setup() {
   colorMode(HSB, 1, 1, 1);
   // blendMode(MULTIPLY);
 
-  size(800, 800, PDF, "Squares.pdf");
+  size(800, 800); //, PDF, "Squares.pdf");
 
   background(0, 0, 1);
   noStroke();
@@ -51,13 +51,13 @@ void draw() {
   }
 
 
-  // Get the renderer
-  PGraphicsPDF pdf = (PGraphicsPDF) g;
+  //// Get the renderer
+  //PGraphicsPDF pdf = (PGraphicsPDF) g;
 
-  // When finished drawing, quit and save the file
-  if (frameCount == 20) {
-    exit();
-  } else {
-    pdf.nextPage();  // Tell it to go to the next page
-  }
+  //// When finished drawing, quit and save the file
+  //if (frameCount == 20) {
+  //  exit();
+  //} else {
+  //  pdf.nextPage();  // Tell it to go to the next page
+  //}
 }
