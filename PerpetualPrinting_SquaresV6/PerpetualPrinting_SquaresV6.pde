@@ -1,52 +1,69 @@
 import processing.pdf.*;
 
 // NUMBER OF COLUMNS
-int col = 48;
+int col = 32;
 
 // VALUES FOR HUE AND SATURATION
 // BASE
-int val = 30;
+int val = 24;
 // +-
-int inc = 20;
+int inc = 6;
 // FINAL VALUES
 int min = val - inc;
 int max = val + inc;
 
-int i = 0, j = 0;
-float step, hueRange, satRange, hue, sat, bri;
+int h = 0, s = 0, b = 0;
+float step, hueRange, satRange, briRange, hue, sat, bri;
 
 void setup() {
   colorMode(HSB, 1, 1, 1);
   // blendMode(MULTIPLY);
 
   size(800, 800); //, PDF, "Squares.pdf");
+  step = width / col;
 
   background(0, 0, 1);
   noStroke();
 
-  frameRate(3);
+  frameRate(1);
   // noLoop();
 }
 
 void draw() {
-  bri = 1;
-
-  step = width / col;
+  background(1);
+  // SET COLOR RANGE FOR EACH PAGE
   hueRange = round(random(min, max));
   satRange = round(random(min, max));
+  briRange = round(random(min, max));
 
-  for (int y = 0; y < height; y++) {
-    for (int x = 0; x < width; x++) {
-      if (i > hueRange) {
-        i = 0;
+  // SIMULATE RANDOM VERTICAL POSITION
+  translate(0, random(step * 3));
+
+  // SQUARE GRID WITH COLOR VARIATION
+  for (int y = 0; y < col; y++) {
+    for (int x = 0; x < col; x++) {
+      // 
+      if (h > hueRange) {
+        h = 0;
       }
-      
-      hue = i / hueRange;
-      sat = i / satRange;
+
+      if (s > satRange) {
+        s = 0;
+      }
+
+      if (b > briRange) {
+        b = 0;
+      }
+
+      hue = h / hueRange;
+      sat = 1;
+      bri = 1;
       fill(hue, sat, bri);
 
-      rect(x * step, y * step, step, step);
-      i++;
+      rect(x * step, y * step * 3, step, step);
+      h++;
+      s++;
+      b++;
     }
   }
 
