@@ -17,7 +17,7 @@ float step, hueRange, satRange, briRange, hue, sat, bri;
 
 void setup() {
   colorMode(HSB, 1, 1, 1);
-  // blendMode(MULTIPLY);
+  blendMode(MULTIPLY);
 
   size(800, 800); //, PDF, "Squares.pdf");
   step = width / col;
@@ -30,14 +30,13 @@ void setup() {
 }
 
 void draw() {
-  background(1);
   // SET COLOR RANGE FOR EACH PAGE
   hueRange = round(random(min, max));
   satRange = round(random(min, max));
   briRange = round(random(min, max));
 
   // SIMULATE RANDOM VERTICAL POSITION
-  translate(0, random(step * 3));
+  translate(0, random(step * 2));
 
   // SQUARE GRID WITH COLOR VARIATION
   for (int y = 0; y < col; y++) {
@@ -60,7 +59,7 @@ void draw() {
       bri = 1;
       fill(hue, sat, bri);
 
-      rect(x * step, y * step * 3, step, step);
+      rect(x * step, y * step * 2, step, step);
       h++;
       s++;
       b++;
